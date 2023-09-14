@@ -1,6 +1,6 @@
 package ru.vlbb.nfox.model;
 
-public enum Role {
+public enum UserRole {
     USER,
     ADMIN
 }
