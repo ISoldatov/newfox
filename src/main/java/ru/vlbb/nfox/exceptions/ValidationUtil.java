@@ -2,7 +2,7 @@ package ru.vlbb.nfox.exceptions;
 
 import lombok.experimental.UtilityClass;
 import ru.vlbb.nfox.model.AbstractBaseEntity;
-import ru.vlbb.nfox.model.Zayavka;
+import ru.vlbb.nfox.model.Order;
 
 import java.time.LocalDate;
 
@@ -13,17 +13,17 @@ public class ValidationUtil {
     public static final LocalDate EARLY_RELEASE_DATE = LocalDate.of(1895, 12, 28);
     public static final int MIN_DURATION = 1;
 
-    public void checkFilm(Zayavka zayavka) {
-        if (zayavka.getName().isBlank()) {
+    public void checkFilm(Order order) {
+        if (order.getName().isBlank()) {
             throw new FilmValidationException("Название не может быть пустым.");
         }
-        if (zayavka.getDuration() < MIN_DURATION) {
+        if (order.getDuration() < MIN_DURATION) {
             throw new FilmValidationException("Продолжительность фильма должна быть положительной.");
         }
-        if (zayavka.getDescription().length() > MAX_DESCRIPTION_LENGTH) {
+        if (order.getDescription().length() > MAX_DESCRIPTION_LENGTH) {
             throw new FilmValidationException("Максимальная длина описания — 200 символов.");
         }
-        if (zayavka.getReleaseDate().isBefore(EARLY_RELEASE_DATE)) {
+        if (order.getReleaseDate().isBefore(EARLY_RELEASE_DATE)) {
             throw new FilmValidationException("дата релиза — не раньше 28 декабря 1895 года");
         }
     }

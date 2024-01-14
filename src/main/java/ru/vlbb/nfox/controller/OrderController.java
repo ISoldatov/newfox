@@ -4,22 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.vlbb.nfox.model.Zayavka;
-import ru.vlbb.nfox.service.ZayavkaService;
+import ru.vlbb.nfox.model.Order;
+import ru.vlbb.nfox.service.OrderService;
 
 @RestController
-public class ZayavkaController {
+public class OrderController {
 
-    private final ZayavkaService service;
+    private final OrderService service;
 
     @Autowired
-    public ZayavkaController(ZayavkaService service) {
+    public OrderController(OrderService service) {
         this.service = service;
     }
 
-    @PostMapping(value = "/zayavka")
-    public Zayavka create(@RequestBody Zayavka zayavka) {
-        return service.create(zayavka);
+    @PostMapping(value = "/order")
+    public Order create(@RequestBody Order order) {
+        return service.create(order);
     }
 
 
