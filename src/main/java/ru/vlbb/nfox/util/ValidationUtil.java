@@ -1,8 +1,9 @@
-package ru.vlbb.nfox.exceptions;
+package ru.vlbb.nfox.util;
 
 import lombok.experimental.UtilityClass;
 import ru.vlbb.nfox.model.AbstractBaseEntity;
 import ru.vlbb.nfox.model.Order;
+import ru.vlbb.nfox.util.exception.NotFoundException;
 
 import java.time.LocalDate;
 
@@ -39,32 +40,36 @@ public class ValidationUtil {
 //            throw new UserValidationException("Дата рождения не может быть в будущем.");
 //        }
 //    }
-//
-//    public static void checkNew(AbstractBaseEntity entity) {
-//        if (!entity.isNew()) {
-//            throw new IllegalArgumentException(entity + " должно быть новое (id=null)");
-//        }
-//    }
-//
-//    public static void checkNotNew(AbstractBaseEntity entity) {
-//        if (!entity.isNew()) {
-//            throw new IllegalArgumentException(entity + " должно быть не новое (id=not null)");
-//        }
-//    }
-//
-//
-//    public static <T> T checkNotFoundWithId(T object, int id) {
-//        checkNotFoundWithId(object != null, id);
-//        return object;
-//    }
-//
-//    public static void checkNotFoundWithId(boolean found, int id) {
-//        checkNotFound(found, "id=" + id);
-//    }
-//
-//    public static void checkNotFound(boolean found, String msg) {
-//        if (!found) {
-//            throw new NotFoundException(String.format("Не найден объект с " + msg));
-//        }
-//    }
+
+    public static void checkNew(AbstractBaseEntity entity) {
+        if (!entity.isNew()) {
+            throw new IllegalArgumentException(entity + " должно быть новое (id=null)");
+        }
+    }
+
+    public static void checkNotNew(AbstractBaseEntity entity) {
+        if (!entity.isNew()) {
+            throw new IllegalArgumentException(entity + " должно быть не новое (id=not null)");
+        }
+    }
+
+    public static <T> T checkNotFoundWithId(T object, int id) {
+        checkNotFoundWithId(object != null, id);
+        return object;
+    }
+
+    public static void checkNotFoundWithId(boolean found, int id) {
+        checkNotFound(found, "id=" + id);
+    }
+
+    public static <T> T checkNotFound(T object, String msg) {
+        checkNotFound(object != null, msg);
+        return object;
+    }
+
+    public static void checkNotFound(boolean found, String msg) {
+        if (!found) {
+            throw new NotFoundException(String.format(msg));
+        }
+    }
 }

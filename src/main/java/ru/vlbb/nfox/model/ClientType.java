@@ -1,8 +1,12 @@
 package ru.vlbb.nfox.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
 public enum ClientType {
-    FL(1, "Физ. лицо"),
-    UL(2, "Юр. лицо"),
+    FL(1, "ФЛ"),
+    UL(2, "ЮЛ"),
     FUL(3, "Филиал ЮЛ"),
     IP(4, "ИП"),
     B(5, "Банк");
@@ -13,14 +17,6 @@ public enum ClientType {
     ClientType(int flag, String title) {
         this.flag = flag;
         this.title = title;
-    }
-
-    public int getFlag() {
-        return flag;
-    }
-
-    public String getTitle() {
-        return title;
     }
 
 }

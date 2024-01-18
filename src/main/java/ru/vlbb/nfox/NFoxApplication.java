@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NfoxApplication {
+public class NFoxApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NfoxApplication.class, args);
+		SpringApplication.run(NFoxApplication.class, args);
 	}
 
 
