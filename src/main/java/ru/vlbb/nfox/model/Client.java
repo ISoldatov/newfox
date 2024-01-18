@@ -1,25 +1,16 @@
 package ru.vlbb.nfox.model;
 
-public class Client {
-    private final String name;
-    private final String inn;
-    private final ClientType type;
+import lombok.*;
+import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
-    public Client(String name, String inn, ClientType type) {
-        this.name = name;
-        this.inn = inn;
-        this.type = type;
-    }
+@Data
+@SuperBuilder
+//@Accessors(fluent = true, chain = true)
+@AllArgsConstructor
+public class Client extends AbstractBaseEntity {
+    private String name;
+    private String inn;
+    private ClientType type;
 
-    public String getName() {
-        return name;
-    }
-
-    public String getInn() {
-        return inn;
-    }
-
-    public ClientType getType() {
-        return type;
-    }
 }

@@ -10,17 +10,17 @@ import ru.vlbb.nfox.service.OrderService;
 @RestController
 public class OrderController {
 
-    private final OrderService service;
-
-    @Autowired
-    public OrderController(OrderService service) {
-        this.service = service;
-    }
-
-    @PostMapping(value = "/order")
-    public Order create(@RequestBody Order order) {
-        return service.create(order);
-    }
-
+//    private final OrderService service;
+//
+//    @Autowired
+//    public OrderController(OrderService service) {
+//        this.service = service;
+//    }
+//
+//    @PostMapping(value = "/order")
+//    public Order create(@RequestBody Order order) {
+//        return service.create(order);
+//    }
+//
 
 }
